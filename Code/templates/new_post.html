@@ -1,0 +1,216 @@
+{% extends "base_template.html" %}
+{% block title %}RecipeShare - New Post{% endblock %}
+{% block css %}
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .btn-bd-primary {
+            --bd-violet-bg: #712cf9;
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: #6528e0;
+            --bs-btn-hover-border-color: #6528e0;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #5a23c8;
+            --bs-btn-active-border-color: #5a23c8;
+        }
+
+        .bd-mode-toggle {
+            z-index: 1500;
+        }
+
+        .form-control-dark {
+            border-color: var(--bs-gray);
+        }
+
+        .form-control-dark:focus {
+            border-color: #fff;
+            box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+        }
+
+        .text-small {
+            font-size: 85%;
+        }
+
+        .dropdown-toggle:not(:focus) {
+            outline: 0;
+        }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="display-5">New Recipe</h1>
+        <hr>
+        <form id="post-form" method="post">
+            <div class="mb-3">
+                <h1 class="display-6"><label for="title" class="form-label">Title</label></h1>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="mb-3">
+                <h1 class="display-6"><label for="content" class="form-label">Content</label></h1>
+                <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
+            </div>
+            <h1 class="display-6"><label for="ingredients" class="form-label">Ingredients for one serving</label></h1>
+            <div id="newInputs">
+                <div class="mb-3 d-flex align-items-center">
+                    <input type="text" name="need" placeholder="Ingredient Name" required class="form-control mr-2">
+                    <input type="text" name="need" placeholder="Amount" required class="form-control mr-2">
+                    <select name="need_description" class="form-control mr-2">
+                        <option value="description1">G</option>
+                        <option value="description2">Oz</option>
+                        <option value="description3">mL</option>
+                        <option value="description4">Lb</option>
+                        <!-- ... more options can be here ... -->
+                    </select>
+                </div>
+                <!-- More similar divs can be here if the button is clicked multiple times -->
+            </div>
+
+
+            <div id="newInputs"></div> <!-- new inputs will be added here -->
+
+            <button class="btn btn-primary" type="button" id="addInputBtn">Add object</button>
+
+            <div class="mb-3">
+                <h2 class="display-6"><label for="image" class="form-label">Image</label></h2>
+                <input type="file" class="form-control" id="image" name="image">
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
+                </div>
+            </div>
+            <script>
+                document.getElementById('addInputBtn').addEventListener('click', function () {
+                    // Create a new div to group the input and its remove button
+                    var newDiv = document.createElement('div');
+                    newDiv.classList.add("mb-3", "d-flex", "align-items-center"); // Bootstrap margin-bottom and flexbox utilities
+
+                    // Create new input for Need Title
+                    var newInput = document.createElement('input');
+                    newInput.type = 'text';
+                    newInput.name = 'need';
+                    newInput.placeholder = 'Ingredient Name'
+                    newInput.required = true;
+                    newInput.classList.add("form-control", "mr-2");
+                    // Bootstrap form control and margin-right
+
+                    var newInput2 = document.createElement('input');
+                    newInput2.type = 'text';
+                    newInput2.name = 'need';
+                    newInput2.placeholder = 'Amount';
+                    newInput2.required = true;
+                    newInput2.classList.add("form-control", "mr-2");
+
+                    // Create new dropdown for Need Description
+                    var newDropdown = document.createElement('select');
+                    newDropdown.name = 'need_description';
+                    newDropdown.classList.add("form-control", "mr-2"); // Bootstrap form control and margin-right
+
+                    // Sample dropdown options
+                    // Option 1
+                    var option1 = document.createElement('option');
+                    option1.value = 'description1';
+                    option1.textContent = 'G';
+                    newDropdown.appendChild(option1);
+
+// Option 2
+                    var option2 = document.createElement('option');
+                    option2.value = 'description2';
+                    option2.textContent = 'Oz';
+                    newDropdown.appendChild(option2);
+
+// Option 3
+                    var option3 = document.createElement('option');
+                    option3.value = 'description3';
+                    option3.textContent = 'mL';
+                    newDropdown.appendChild(option3);
+
+// Option 4
+                    var option4 = document.createElement('option');
+                    option4.value = 'description4';
+                    option4.textContent = 'Lb';
+                    newDropdown.appendChild(option4);
+                    // ... add as many options as needed
+
+                    // Create remove button
+                    var removeBtn = document.createElement('button');
+                    removeBtn.textContent = 'Remove';
+                    removeBtn.type = 'button';
+                    removeBtn.classList.add("btn", "btn-danger"); // Bootstrap button styling
+                    removeBtn.addEventListener('click', function () {
+                        // Remove this input field when its remove button is clicked
+                        newDiv.remove();
+                    });
+
+                    // Add the input, dropdown, and remove button to the new div
+                    newDiv.appendChild(newInput);
+                    newDiv.appendChild(newInput2);
+                    newDiv.appendChild(newDropdown);
+                    newDiv.appendChild(removeBtn);
+
+                    // Add the new div to the form
+                    document.getElementById('newInputs').appendChild(newDiv);
+                });
+            </script>
+
+        </form>
+    </div>
+{% endblock %}

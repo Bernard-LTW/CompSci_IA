@@ -63,12 +63,13 @@ will be evaluated according to the criteria below:
 
 ## Success Criteria
 
-1. The website must allow user registration for personal accounts secured with a token system  *(Issue tackled: "Credibility is also a question my client noticed" and "found it very hard to keep track of")*
+1. The website must allow user registration for personal accounts secured*(Issue tackled: "Credibility is also a question my client noticed" and "found it very hard to keep track of")*
 2. The website must allow for posting of receipes and their respective details *(Issue tackled: "there is a lack of a platform to share their receipes.")*
 3. The webiste must allow for commenting on each recepie posted  *(Issue tackled: "very hard to keep track of")*
 4. The website must allow for conversion of units in the ingredients *(Issue tackled: "Not to mention, some times the units for ingredients varies from product to products")\
 5. The website must allow for calculating the amount of ingredients needed based on the number of serving inputted by the user *(Issue tackled: "very hard to visualize the transactions")*
 6. The website would allow putting picture on each posted receipe*(Issue tackled:"They tried using text messages but found it very hard to keep track of and hard to view.")*
+7. The website would allow searching for recipes with the ingredients *(Issue tackled:"They tried using text messages but found it very hard to keep track of and hard to view.")*
 
 # Criteria B: Design
 

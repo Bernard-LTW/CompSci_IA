@@ -74,7 +74,7 @@
 
     body
     {
-        background: linear-gradient(to bottom right, #712cf9, #f9624c);
+        background: linear-gradient(to bottom right, #048bd7, #00b953);
     }
 
     .card{
@@ -117,11 +117,11 @@
       {% endif %}
       {% endwith %}
 <div class="d-flex justify-content-center align-items-center vh-300">
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 19rem;">
         <main class="form-signin w-300 m-auto">
             <form method="POST" action="/login">
-                <img class="mb-4" src="https://cdn3.iconfinder.com/data/icons/service-design-tools/100/3_Mar-59-512.png" alt="" width="200" height="200">
-                <h1 class="h3 mb-3 fw-normal">CodeShare - Sign in</h1>
+                <img class="mb-4" src="{{ url_for('static', filename='Main.svg') }}" alt="" width="200" height="200">
+                <h1 class="h3 mb-3 fw-normal">RecipeShare - Sign in</h1>
 
                 <div class="form-floating">
 {#                    <input type="" class="form-control" id="floatingInput" placeholder="name@example.com">#}
