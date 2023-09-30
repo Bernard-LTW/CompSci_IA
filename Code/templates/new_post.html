@@ -99,7 +99,7 @@
     <div class="container mt-5">
         <h1 class="display-5">New Recipe</h1>
         <hr>
-        <form id="post-form" method="post">
+        <form id="post-form" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <h1 class="display-6"><label for="title" class="form-label">Title</label></h1>
                 <input type="text" class="form-control" id="title" name="title" required>
@@ -111,13 +111,14 @@
             <h1 class="display-6"><label for="ingredients" class="form-label">Ingredients for one serving</label></h1>
             <div id="newInputs">
                 <div class="mb-3 d-flex align-items-center">
-                    <input type="text" name="need" placeholder="Ingredient Name" required class="form-control mr-2">
-                    <input type="text" name="need" placeholder="Amount" required class="form-control mr-2">
-                    <select name="need_description" class="form-control mr-2">
-                        <option value="description1">G</option>
-                        <option value="description2">Oz</option>
-                        <option value="description3">mL</option>
-                        <option value="description4">Lb</option>
+                    <input type="text" name="ingredient_name[]" placeholder="Ingredient Name" required class="form-control mr-2">
+                    <input type="text" name="ingredient_amount[]" placeholder="Amount" required class="form-control mr-2">
+                    <select name="ingredient_unit[]" class="form-control mr-2">
+                        <option value="G">G</option>
+                        <option value="Oz">Oz</option>
+                        <option value="mL">mL</option>
+                        <option value="Lb">Lb</option>
+                        <option value="None">No Unit</option>
                         <!-- ... more options can be here ... -->
                     </select>
                 </div>
@@ -130,8 +131,8 @@
             <button class="btn btn-primary" type="button" id="addInputBtn">Add object</button>
 
             <div class="mb-3">
-                <h2 class="display-6"><label for="image" class="form-label">Image</label></h2>
-                <input type="file" class="form-control" id="image" name="image">
+                <h2 class="display-6"><label for="uploaded_image" class="form-label">Image</label></h2>
+                <input type="file" class="form-control" id="uploaded_image" name="uploaded_image">
                 <div class="mb-3">
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
@@ -146,7 +147,7 @@
                     // Create new input for Need Title
                     var newInput = document.createElement('input');
                     newInput.type = 'text';
-                    newInput.name = 'need';
+                    newInput.name = 'ingredient_name[]';
                     newInput.placeholder = 'Ingredient Name'
                     newInput.required = true;
                     newInput.classList.add("form-control", "mr-2");
@@ -154,41 +155,45 @@
 
                     var newInput2 = document.createElement('input');
                     newInput2.type = 'text';
-                    newInput2.name = 'need';
+                    newInput2.name = 'ingredient_amount[]';
                     newInput2.placeholder = 'Amount';
                     newInput2.required = true;
                     newInput2.classList.add("form-control", "mr-2");
 
                     // Create new dropdown for Need Description
                     var newDropdown = document.createElement('select');
-                    newDropdown.name = 'need_description';
+                    newDropdown.name = 'ingredient_unit[]';
                     newDropdown.classList.add("form-control", "mr-2"); // Bootstrap form control and margin-right
 
                     // Sample dropdown options
                     // Option 1
                     var option1 = document.createElement('option');
-                    option1.value = 'description1';
+                    option1.value = 'G';
                     option1.textContent = 'G';
                     newDropdown.appendChild(option1);
 
 // Option 2
                     var option2 = document.createElement('option');
-                    option2.value = 'description2';
+                    option2.value = 'Oz';
                     option2.textContent = 'Oz';
                     newDropdown.appendChild(option2);
 
 // Option 3
                     var option3 = document.createElement('option');
-                    option3.value = 'description3';
+                    option3.value = 'mL';
                     option3.textContent = 'mL';
                     newDropdown.appendChild(option3);
 
 // Option 4
                     var option4 = document.createElement('option');
-                    option4.value = 'description4';
+                    option4.value = 'Lb';
                     option4.textContent = 'Lb';
                     newDropdown.appendChild(option4);
-                    // ... add as many options as needed
+
+                    var option5 = document.createElement('option');
+                    option5.value = 'None';
+                    option5.textContent = 'No Unit';
+                    newDropdown.appendChild(option5);
 
                     // Create remove button
                     var removeBtn = document.createElement('button');

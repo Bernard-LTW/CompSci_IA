@@ -2,6 +2,13 @@
 {% block title %}RecipeShare - Dashboard{% endblock %}
 {% block css %}
     <style>
+       .truncate {
+    white-space: nowrap;       /* Keep text on a single line */
+    overflow: hidden;          /* Hide any overflow */
+    text-overflow: ellipsis;   /* Use ellipsis (...) for overflow */
+    max-width: 200ch;          /* Set maximum width to approximately 200 characters */
+    display: block;            /* Ensure it acts as a block */
+}
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -110,26 +117,17 @@
                 </div>
             </div>
         </div>
-        {% for post in posts %}
-        <div class="card mb-3">
-            <div class="card-body">
-                <h2 class="card-title">{{ post.title }}</h2>
-                <h6 class="card-subtitle mb-2 text-muted"><a href="/profile/{{ post.username }}">{{ post.username }}</a> - {{ post.datetime_posted }}</h6>
-                <p class="card-text">{{ post.content }}</p>
-                <pre><code class="language-{{ post.code_language }}">{{ post.code }}</code></pre>
-            </div>
-            <div class="card-footer d-inline-flex justify-content-start mt-auto">
-                <h3> Was this helpful?
-                    <a href="/add_like/{{ post.id }}"><button type="button" class="btn btn-outline-success btn-sm w-auto">
-                        <i class="bi bi-hand-thumbs-up"></i> +
-                    </button></a>
-                    <span class="badge bg-secondary">{{ post.like_count }}</span>
-                    <a href="/add_dislike/{{ post.id }}"><button type="button" class="btn btn-outline-danger btn-sm w-auto">
-                        <i class="bi bi-hand-thumbs-down"></i> -
-                    </button></a>
-                </h3>
-            </div>
-        </div>
-        {% endfor %}
+{% for post in posts %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h2 class="card-title">{{ post[0].name }}</h2>
+        <h6 class="card-subtitle mb-2 text-muted"><a href="/profile/{{ post[1] }}">{{ post[1] }}</a> - {{ post[0].datetime_posted.strftime('%Y-%m-%d %H:%M') }}</h6>
+        <p class="card-text truncate">{{ post[0].content }}</p>
+        <!-- Set a max-width and height on the image to ensure it scales proportionally -->
+        <img src="/uploads/{{ post[0].image }}" alt="{{ post[0].name }}" class="img-fluid mb-2" style="max-width: 100%; max-height: 300px;">
+        <a href="/recipe/{{ post[0].id }}" class="btn btn-primary">Read More</a>
+    </div>
+</div>
+{% endfor %}
     </div>
 {% endblock %}

@@ -1,3 +1,6 @@
+from datetime import datetime
+
+import pytz
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import Table, Column, Integer, String, DateTime, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
@@ -21,12 +24,11 @@ class Recipe(Base):
     __tablename__ = "recipes"
     id: Column[int] = Column(Integer, primary_key=True)
     name: Column[str] = Column(String(20))
-    description: Column[str] = Column(String(2000))
+    content: Column[str] = Column(String(2000))
     ingredients: Column[str] = Column(String(2000))
-    instructions: Column[str] = Column(String(2000))
     image: Column[str] = Column(String(2000))
     user_id: Column[int] = Column(Integer, ForeignKey("users.id"))
-
+    datetime_posted: Column[DateTime] = Column(DateTime, default=lambda: datetime.now(pytz.timezone('Asia/Tokyo')))
     def __repr__(self) -> str:
         return f"Recipe(id={self.id!r}, name={self.name!r})"
 
