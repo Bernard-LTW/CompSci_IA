@@ -1,8 +1,8 @@
 # Bernard's IA: Recipe Sharing Website
 
-<img src="Assets/DALLE.jpeg" style="zoom:50%;" />[^1]
+<img src="Assets/DALLE_Flask.jpeg" style="zoom:50%;" />[^1]
 
-[^1]: "A person cooking in the form of an oil painting" by DALL E 2, Open AI, Accessed 19th August 2023
+[^1]: "APixar-style animation scene of a vibrant kitchen with a more intense and dramatic atmosphere. A woman is engrossed in her tablet, browsing through the RecipeShare app. Behind her, the oven erupts with a huge flame, the blender explodes sending its contents flying, and sparks fly from electrical outlets. The scene feels more chaotic, like a comedic action sequence. The title 'RecipeShare' is prominently displayed above, with the letters giving off a fiery glow. by DALL E 3, Open AI, Accessed 25th October 2023
 
 ## Criteria A: Planning
 
@@ -66,7 +66,7 @@ will be evaluated according to the criteria below:
 1. The website must allow user registration for personal accounts secured*(Issue tackled: "Credibility is also a question my client noticed" and "found it very hard to keep track of")*
 2. The website must allow for posting of recipes and their respective details *(Issue tackled: "there is a lack of a platform to share their receipes.")*
 3. The webiste must allow for commenting on each recipe posted  *(Issue tackled: "very hard to keep track of")*
-4. The website must allow for conversion of units in the ingredients *(Issue tackled: "Not to mention, some times the units for ingredients varies from product to products")\
+4. The website must allow for conversion of units in the ingredients *(Issue tackled: "Not to mention, some times the units for ingredients varies from product to products")
 5. The website must allow for calculating the amount of ingredients needed based on the number of serving inputted by the user *(Issue tackled: "it's very hard to accurate gauge how much ingredients is needed for multiple servings.")*
 6. The website would allow putting picture on each posted receipe*(Issue tackled:"They tried using text messages but found it very hard to keep track of and hard to view.")*
 7. The website would allow searching for recipes with the ingredients *(Issue tackled:"They tried using text messages but found it very hard to keep track of and hard to view.")*
@@ -81,54 +81,55 @@ will be evaluated according to the criteria below:
 
 ## Data Storage
 
-<img src="/Users/bernardlee/PycharmProjects/IA_Kivy/Assets/CodeShare_ER2.jpeg" style="zoom: 50%;" />
+<img src="Assets/RecipeShare_ER.jpeg" style="zoom: 50%;" />
 
 **Fig.2** *ER diagram of the Website*
 
 ### Example of Data Entries
 
-![](/Users/bernardlee/PycharmProjects/IA_Kivy/Assets/CodeShareDB_Post.jpg)
+<img src="Assets/RecipeShare_RecipeTable.jpg" alt="CodeShareDB_User" style="zoom: 67%;" />
 
-**Fig.3** *Example of data entry in the Post table*
+**Fig.3** *Example of data entry in the Recipe table*
 
-<img src="/Users/bernardlee/PycharmProjects/IA_Kivy/Assets/CodeShareDB_User.jpg" alt="CodeShareDB_User" style="zoom: 67%;" />
+<img src="Assets/RecipeShare_UserTable.jpg" alt="CodeShareDB_User" style="zoom: 67%;" />
 
 **Fig.4** *Example of data entry in the User table*
 
+<img src="Assets/RecipeShare_CommentsTable.jpg" alt="CodeShareDB_User" style="zoom: 67%;" />
+
+**Fig.5** *Example of data entry in the Comments table*
+
 ## UML Diagram
 
-![](/Users/bernardlee/PycharmProjects/IA_Kivy/Assets/CodeShare_UML2.jpeg)
+![](Assets/RecipeShare_UMLv1.jpeg)
 
-**Fig.5** *UML Diagram of the website*
+**Fig.6** *UML Diagram of the website*
 
 ## Wireframe
 
-<img src="/Users/bernardlee/PycharmProjects/IA_Kivy/Assets/CodeShare_Wireframe.jpeg" style="zoom: 67%;" />
+<img src="Assets/RecipeShare_Wireframe.jpg" style="zoom: 67%;" />
 
-**Fig.6** *Wireframe of the website*
+**Fig.7** *Wireframe of the website*
 
 ## Flow Diagrams
 
-### Token System
+### Ingridients Storage into database
 
-<img src="/Users/bernardlee/PycharmProjects/IA_Kivy/Assets/CodeShareFlow_Token.jpg" style="zoom: 25%;" />
+<img src="Assets/RecipeShare_IngridientStorage.jpg" style="zoom: 25%;" />
 
-**Fig.7** *Flow Diagram of the token system* This diagram shows how users can authenticate in my website with JWT with
-expiry time. This ensures that users' data is kept safe and no unauthorized access would occur.
+**Fig.7** *Flow Diagram of process of storing ingredients into database* This diagram shows how the website handles a different number of ingredients each time a new recipe is added.
 
-### Sorting
+### Serving Calculations
 
-<img src="/Users/bernardlee/PycharmProjects/IA_Kivy/Assets/CodeShareFlow_Sort4.jpg" style="zoom:25%;" />
+<img src="Assets/RecipeShare_FlowServingCalculations.jpg" style="zoom:25%;" />
 
-**Fig.8** *Flow Diagram of sorting system* This flow diagram demonstrates the ability to sort posts by different
-metrics.
+**Fig.8** *Flow Diagram of serving calculation* This flow diagram demonstrates the ability to calculate the ingredients according to the number of servings inputted by the user.
 
-### Like System
+### File Uploads
 
-<img src="/Users/bernardlee/PycharmProjects/IA_Kivy/Assets/CodeShareFlow_Like2.jpg" style="zoom:25%;" /> 
+<img src="Assets/RecipeShare_FileUpload.jpg" style="zoom:25%;" /> 
 
-**Fig.9** *Flow diagram for adding and removing likes* This flow diagram demonstrates how the system for adding
-like/dislike works.
+**Fig.9** *Flow diagram for handling file uploads* This flow diagram demonstrates how the system handles pictures uploaded by the user when they create a recipe
 
 ## Test Plan
 
@@ -201,34 +202,20 @@ like/dislike works.
 ### [Bootstrap 5 Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
 Bootstrap 5's official documentation is what I referenced regarding UI elements of my website.
-Snippets of code for
-modals, cards, headers and footer have been taken from the documentation and have been since modified to fit the needs
-of the current application
+Snippets of code for modals, cards, headers and footer have been taken from the documentation and have been since modified to fit the needs of the current application
 
 ### [ChatGPT](https://chat.openai.com)
 
 ChatGPT is a large language model developed by OpenAI, based on the GPT (Generative Pre-trained Transformer)
-architecture.
-It helps me with logics in code and pseudocode for parts like HTML, jinja and JWT tokens.
+architecture. It helps me with logics in code and pseudocode for parts like HTML, JavaScript and JWT tokens.
 
 ***Disclaimer*** *No part of this program includes code blocks directly copied from ChatGPT*
 
 #### Example use of ChatGPT
 
-![](/Users/bernardlee/PycharmProjects/IA_Kivy/Assets/ExampleUseGPT.jpg)
+![](Assets/ChatGPTUse.jpg)
 
-**Fig.10**  *Conversation with ChatGPT exported on 2023-05-07*
-
-**[Github Copilot X](https://github.com/features/preview/copilot-x)**
-
-GitHub Copilot is an AI-powered code completion tool developed by GitHub in collaboration with OpenAI.
-It uses machine
-learning algorithms trained on a vast corpus of code to suggest code snippets, functions, and even entire classes based
-on the context of what the developer is writing.
-It has helped me explain my code and syntax reformatting on HTML and
-Python
-
-***Disclaimer*** *No part of this program includes code blocks directly generated by Github Copilot*
+**Fig.10**  *Conversation with ChatGPT exported on 2023-10-26*
 
 ## List of Techniques
 
@@ -350,7 +337,7 @@ session['token'] = create_token(username, 120)
 Now, the user holds the token in their browser. When they want to execute an action, the backend tries to get the token
 from the browser as follows:
 
-```py
+```python
 @app.route("/new_post", methods=['GET', 'POST'])
 def new_post():
     try:
