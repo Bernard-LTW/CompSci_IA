@@ -183,6 +183,27 @@ def remove_comment(recipe_id, comment_id):
         return redirect(url_for('recipe', recipe_id=recipe_id))
     return redirect(url_for('login'))
 
+@app.route("/search", methods=['GET', 'POST'])
+def search():
+    token = session.get('token')
+    if token and check_token(token):
+        username = get_username_from_token(token)
+        if request.method == 'POST':
+            search_query = request.form.get('search_query')
+            posts = db.search(search_query)
+            return render_template('search.html', title='Dashboard', username=username, search_results=posts)
+        elif request.method == 'GET':
+            return render_template('search.html', username=username)
+    return redirect(url_for('login'))
+
+@app.route("/profile/<username>")
+def profile(username):
+    token = session.get('token')
+    if token and check_token(token):
+        username = get_username_from_token(token)
+        posts = db.get_post_from_user(username)
+        return render_template('profile.html', title='Profile', username=username, posts=posts)
+    return redirect(url_for('login'))
 
 
 if __name__ == '__main__':

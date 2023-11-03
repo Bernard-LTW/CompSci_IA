@@ -134,7 +134,7 @@
                             {% for ingredient in ingredients %}
                                 <li data-amount="{{ ingredient.amount }}" data-unit="{{ ingredient.unit }}">
                                     {{ ingredient.name }}: <span
-                                        class="ingredientAmount">{{ ingredient.amount }}</span> {{ ingredient.unit }}
+                                        class="ingredientAmount">{{ ingredient.amount }}</span> {% if ingredient.unit != "None" %}{{ ingredient.unit }}{% endif %}
                                 </li>
                             {% endfor %}
                         </ul>
@@ -150,7 +150,7 @@
                                 <ul class="list-group">
                                 {% for comment in comments %}
                                     <li class="list-group-item">
-                                        <strong>{{ comment[1] }}</strong>: {{ comment[0].comment }}{% if comment[1] == username %}
+                                        <a href="/profile/{{ comment[1] }}"><strong>{{ comment[1] }}</strong></a>: {{ comment[0].comment }}{% if comment[1] == username %}
                                             <div class="text-right"><a href="/recipe/{{ recipe.id }}/delete_comment/{{ comment[0].id }}"
                                                                        class="btn btn-danger btn-sm float-right ml-auto">Delete</a></div>{% endif %}
                                     </li>

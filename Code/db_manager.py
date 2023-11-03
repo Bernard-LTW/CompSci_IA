@@ -75,3 +75,18 @@ class DBHandler:
 
     def get_id_from_username(self, username):
         return self.session.query(Users).filter_by(username=username).first().id
+
+    def search(self, search_query):
+        temp = self.session.query(Recipe).filter(Recipe.name.like("%"+search_query+"%")).all()
+        posts = []
+        for post in temp:
+            posts.append([post, self.session.query(Users).filter_by(id=post.user_id).first().username])
+        return posts
+
+    def get_post_from_user(self, username):
+        user_id = self.session.query(Users).filter_by(username=username).first().id
+        temp = self.session.query(Recipe).filter_by(user_id=user_id).all()
+        posts = []
+        for post in temp:
+            posts.append([post, self.session.query(Users).filter_by(id=post.user_id).first().username])
+        return posts
