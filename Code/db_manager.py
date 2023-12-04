@@ -1,7 +1,7 @@
 import sqlalchemy as db
 from sqlalchemy import MetaData
 from sqlalchemy.orm import Session
-from db_models import Base, Users, Recipe, Comments
+from db_models import Base, Users, Recipe, Comments, Ingredients
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
 from secure_password import *
@@ -35,11 +35,15 @@ class DBHandler:
             return True
         else: return False
 
-    def create_post(self,title, content, ingredients_json, unique_filename,token):
+    def create_post(self,title, content, ingredients_dictionary, unique_filename,token):
         user = get_username_from_token(token)
         user_id = self.session.query(Users).filter_by(username=user).first().id
-        new_post = Recipe(name=title, content=content, ingredients=ingredients_json, image=unique_filename, user_id=user_id)
+        new_post = Recipe(name=title, content=content, image=unique_filename, user_id=user_id)
         self.session.add(new_post)
+        self.session.commit()
+        for ingredient in ingredients_dictionary:
+            new_ingredient = Ingredients(name=ingredient["name"], amount=ingredient["amount"], unit=ingredient["unit"], recipe_id=new_post.id)
+            self.session.add(new_ingredient)
         self.session.commit()
 
     def get_all_posts(self):
@@ -52,7 +56,8 @@ class DBHandler:
 
     def get_one_post(self, id):
         temp =  self.session.query(Recipe).filter_by(id=id).first()
-        return [temp, self.session.query(Users).filter_by(id=temp.user_id).first().username]
+        ingredients = self.session.query(Ingredients).filter_by(recipe_id=id).all()
+        return [temp, self.session.query(Users).filter_by(id=temp.user_id).first().username,ingredients]
 
     def get_comments_for_recipe(self, recipe_id):
         temp = self.session.query(Comments).filter_by(recipe_id=recipe_id).all()

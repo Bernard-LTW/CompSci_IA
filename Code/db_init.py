@@ -1,5 +1,5 @@
 import sqlalchemy as db
-from db_models import Base, Users, Recipe, Comments
+from db_models import Base, Users, Recipe, Comments, Ingredients
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import Session
 from db_manager import DBHandler

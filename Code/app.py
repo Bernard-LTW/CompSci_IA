@@ -1,8 +1,9 @@
 import json
 import os
 import time
-from flask import Flask, render_template, request, redirect, url_for, flash, session, send_from_directory
-
+import pdfkit
+from flask import Flask, render_template, request, redirect, url_for, flash, session, send_from_directory, make_response
+from weasyprint import HTML
 from Code.db_models import Users
 from db_manager import DBHandler
 from token_management import create_token, check_token, get_username_from_token
@@ -117,7 +118,7 @@ def new_post():
                 }
                 for ingredient_name, ingredient_amount, need_description in ingredients
             ]
-            ingredients_json = json.dumps(ingredients_dict_list)
+            #ingredients_json = json.dumps(ingredients_dict_list)
 
             uploaded_file = request.files.get('uploaded_image')
 
@@ -133,7 +134,7 @@ def new_post():
                     return "Invalid file type.", 400
             else:
                 unique_filename = "No file"
-            db.create_post(title, content, ingredients_json, unique_filename,token)
+            db.create_post(title, content, ingredients_dict_list, unique_filename,token)
             return redirect(url_for('dashboard'))
 
         elif request.method == 'GET':
@@ -156,7 +157,8 @@ def recipe(recipe_id):
         recipe_data = db.get_one_post(recipe_id)
         if recipe_data:
             recipe_details = recipe_data[0]
-            temp_ingredients = json.loads(recipe_details.ingredients)
+            temp_ingredients = recipe_data[2]
+            print(temp_ingredients)
             comments = db.get_comments_for_recipe(recipe_id)
             #append username to comments
             return render_template('recipe.html', title='Recipe', recipe=recipe_details, ingredients=temp_ingredients, poster_username=recipe_data[1], comments=comments, username=username)
@@ -205,6 +207,25 @@ def profile(username):
         return render_template('profile.html', title='Profile', username=username, posts=posts)
     return redirect(url_for('login'))
 
+@app.route("/recipe/download/<int:recipe_id>/<int:servings>", methods=["GET", "POST"])
+def download(recipe_id, servings):
+    token = session.get('token')
+    if token and check_token(token):
+        recipe_data = db.get_one_post(recipe_id)
+        if recipe_data:
+            recipe_details = recipe_data[0]
+            temp_ingredients = recipe_data[2]
+            comments = db.get_comments_for_recipe(recipe_id)
+            rendered = render_template('recipe.html', title='Recipe', recipe=recipe_details, ingredients=temp_ingredients, poster_username=recipe_data[1], comments=comments)
+            #pdf = pdfkit.from_string(rendered, False, options={'enable-local-file-access': ""})
+            pdf = HTML(string=rendered).write_pdf()
+            response = make_response(pdf)
+            response.headers['Content-Type'] = 'application/pdf'
+            response.headers['Content-Disposition'] = 'attachment; filename=output.pdf'
+            return response
+        else:
+            return "Recipe not found", 404
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     db = DBHandler("sqlite:///Code/recipe.sqlite")

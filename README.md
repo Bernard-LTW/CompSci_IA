@@ -47,27 +47,28 @@ will be evaluated according to the criteria below:
 1. The website must allow user registration for personal accounts secured*(Issue tackled: "Credibility is also a question my client noticed" and "found it very hard to keep track of")*
 2. The website must allow for posting of recipes and their respective details *(Issue tackled: "there is a lack of a platform to share their receipes.")*
 3. The webiste must allow for commenting on each recipe posted  *(Issue tackled: "very hard to keep track of")*
-5. The website must allow for calculating the amount of ingredients needed based on the number of serving inputted by the user *(Issue tackled: "it's very hard to accurate gauge how much ingredients is needed for multiple servings.")*
-6. The website would allow putting picture on each posted receipe*(Issue tackled:"They tried using text messages but found it very hard to keep track of and hard to view.")*
-7. The website would allow searching for recipes with the ingredients *(Issue tackled:"They tried using text messages but found it very hard to keep track of and hard to view.")*
+4. The website must allow for calculating the amount of ingredients needed based on the number of serving inputted by the user *(Issue tackled: "it's very hard to accurate gauge how much ingredients is needed for multiple servings.")*
+5. The website would allow putting picture on each posted receipe*(Issue tackled:"They tried using text messages but found it very hard to keep track of and hard to view.")*
+6. The website would allow searching for recipes with the ingredients *(Issue tackled:"They tried using text messages but found it very hard to keep track of and hard to view.")*
+7. The website would allow for exporting the recipe to a PDF  *(Issue tackled: "very hard to keep track of")*
 
 # Criteria B: Design
 
 ## System Diagram
 
-![](Assets/SysD.jpeg)
+![](Assets/SysD2.jpeg)
 
 **Fig.1** *System diagram of the Website*
 
 ## Data Storage
 
-<img src="Assets/RecipeShare_ER.jpeg" style="zoom: 50%;" />
+<img src="Assets/RecipeShare_ER2.jpeg" style="zoom: 50%;" />
 
 **Fig.2** *ER diagram of the Website*
 
 ### Example of Data Entries
 
-<img src="Assets/RecipeShare_RecipeTable.jpg" alt="CodeShareDB_User" style="zoom: 67%;" />
+<img src="Assets/RecipeShare_RecipeTablev2.jpg" alt="CodeShareDB_User" style="zoom: 67%;" />
 
 **Fig.3** *Example of data entry in the Recipe table*
 
@@ -79,11 +80,15 @@ will be evaluated according to the criteria below:
 
 **Fig.5** *Example of data entry in the Comments table*
 
+<img src="Assets/RecipeShare_IngredientsTable.jpg" alt="CodeShareDB_User" style="zoom: 67%;" />
+
+**Fig.6** *Example of data entry in the Ingredients table*
+
 ## UML Diagram
 
-![](Assets/RecipeShare_UMLv1.jpeg)
+![](Assets/RecipeShare_UMLv2.jpeg)
 
-**Fig.6** *UML Diagram of the website*
+**Fig.7** *UML Diagram of the website*
 
 ## Wireframe
 
@@ -124,6 +129,7 @@ will be evaluated according to the criteria below:
 | Unit Testing        | Serving Calculations       | 1.Open Website<br />2.Login<br />3.Click on a read more button of a recipe<br />4. Press the plus button on the servings calculator | The user should be able to see the amount of ingredients needed flucuate according to the number of servings chosen by te user. |
 | Integration Testing | Adding Post / Viewing Post | 1.Open Website<br />2.Login<br />3.Create a new post following the instructions above<br />4.Click the home button | The user should be able to see the post they just created on the top of the dashboard. |
 | Unit Testing        | Search System              | 1.Open Website<br />2.Login<br />3.Click the search button on the top bar<br />4.Put in "French" as the search keyword and press search | The user should be able to see a post with the keyword French in the title. |
+| Unit Testing        | PDF Export                 | 1.Open Website<br />2.Login<br />3.Click on a post<br />4.Click the "Print Recipe" button<br />5.Save as PDF using the popped up dialog | The user should be able to download a pdf of the opened recipe |
 | Code Review         | Reviewing Code             | Going through the code and making sure unused parts are removed, variables are named properly and comments are placed appropriated | Easy to understand and easy to debug code for future development. |
 
 ## Record of Tasks
@@ -177,15 +183,23 @@ will be evaluated according to the criteria below:
 | 45      | Development: Fixing bug for flash messages                   | Fixed issue where flash messages weren't showing on the dashboard | 30 min        | 2023-10-11             | C         |
 | 46      | Development: Consolidating repeating code                    | Put together repeating code into functions                   | 30 min        | 2023-10-12             | C         |
 | 47      | Development: Renaming variables                              | Improved readability for future extension                    | 30 min        | 2023-10-13             | C         |
-| 48      | Planning: Creating UML Diagram                               | To have understanding of the different parts of the code     | 30min         | 2023-10-23             | B         |
-| 49      | Planning: Creating Flow Diagrams                             | To have a clear understanding of difficult parts of code     | 1hr           | 2023-10-24             | B         |
-| 50      | Development: Cleaning up Code                                | To have the code finalized and organized for easy-understanding | 10min         | 2023-10-25             | C         |
-| 51      | Development: Cleaning up Code                                | To have the code finalized and organized for easy-understanding | 30 min        | 2023-10-26             | C         |
-| 52      | Planning: Creating Test Plan                                 | To have a test plan created for confirming if the application works to standard | 30min         | 2023-10-27             | B         |
-| 53      | Planning: Finalizing Test Plan                               | To have the test plan finalized                              | 30 min        | 2023-10-28             | B         |
-| 54      | Implementation: Evaluation by client                         | To have the website evaluated by the client and the subsequent evidence documented | 1hr           |                        | E         |
-| 55      | Beta Testing: Evaluation by peer                             | To have the website evaluated by a peer and the subsequent evidence documented | 1hr           |                        | E         |
-| 56      | Implementation: Collect Recommendations from users/client    | To have taken in recommendations from both evaluations on how the website can be improved and document them properly | 15min         |                        | E         |
+| 48      | Development: Search Function                                 | To code the html page for the search page                    | 30 min        | 2023-10-14             | C         |
+| 49      | Development: Search Function                                 | To have the endpoint for the search page coded               | 20min         | 2023-10-15             | C         |
+| 50      | Planning: Researching SQLAlcehmy                             | To have an idea of what function to use for searching        | 20min         | 2023-10-16             | A         |
+| 51      | Development: Search Function                                 | To have the search function coded and working                | 20min         | 2023-10-17             | C         |
+| 52      | Planning: Research about PDF rendering libraries             | To have an idea of how to render pdfs from HTML              | 60min         | 2023-10-18             | A         |
+| 53      | Development: PDF Export function                             | To have the endpoints for the pdf exports coded              | 30min         | 2023-10-19             | C         |
+| 54      | Planning: Research about client-side JS functions            | To have an idea of alternate options for exporting to pdf    | 20min         | 2023-10-20             | C         |
+| 55      | Development:  PDF Export function                            | To have the function coded and working                       | 20min         | 2023-10-21             | C         |
+| 56      | Planning: Creating UML Diagram                               | To have understanding of the different parts of the code     | 30min         | 2023-10-23             | B         |
+| 57      | Planning: Creating Flow Diagrams                             | To have a clear understanding of difficult parts of code     | 1hr           | 2023-10-24             | B         |
+| 58      | Development: Cleaning up Code                                | To have the code finalized and organized for easy-understanding | 10min         | 2023-10-25             | C         |
+| 59      | Development: Cleaning up Code                                | To have the code finalized and organized for easy-understanding | 30 min        | 2023-10-26             | C         |
+| 60      | Planning: Creating Test Plan                                 | To have a test plan created for confirming if the application works to standard | 30min         | 2023-10-27             | B         |
+| 61      | Planning: Finalizing Test Plan                               | To have the test plan finalized                              | 30 min        | 2023-10-28             | B         |
+| 62      | Implementation: Evaluation by client                         | To have the website evaluated by the client and the subsequent evidence documented | 1hr           |                        | E         |
+| 63      | Beta Testing: Evaluation by peer                             | To have the website evaluated by a peer and the subsequent evidence documented | 1hr           |                        | E         |
+| 64      | Implementation: Collect Recommendations from users/client    | To have taken in recommendations from both evaluations on how the website can be improved and document them properly | 15min         |                        | E         |
 
 # Criteria C: Development
 
@@ -324,13 +338,15 @@ After that the child file can add content into the variable with the same line:
 {% endblock %}
 ```
 
-When this html file is loaded on the browser, the base file is taken and the variables from the child file is being
-stitched together automatically into one single HTML file. That way, if I need to change anything on the header/footer
-or change out dependencies, improving efficiency and future development upgradibility.
+When this html file is loaded on the browser, the base file is taken and the variables from the child file is being stitched together automatically into one single HTML file. That way, if I need to change anything on the header/footer or change out dependencies, I only need to change it once and it will spread across all pages, improving efficiency and future development upgradibility.
 
 ### Ingredients Storage(Success Criteria #2)
 
-My client needed to be able to post recipes and their respective details in an organized way. While designing the system for that, I noticed a problem. That is that every single recipe have different numbers of ingredients and storing it one by one in another table of the SQL database would be very inefficient and disorganised as the application would have to do multiple queries to load one recipe for the user. To resolve this issue, I did some reasearch and came across JSON strings. A JSON string is a string representation of a JSON data structure. JSON supports two types of structures: collections of name/value pairs and ordered lists of values. This data structure is entirely language dependent, meaning that it can be easily decoded into other data structures in any language, in my case python. 
+My client needed to be able to post recipes and their respective details in an organized way. While designing the system for that, I noticed a problem. That is that there would only be one column for ingredients inside the table but there would be a different number of ingredients inputted by the user. To resolve this, I could take two approaches, one is JSON string. A JSON string is a string representation of a JSON data structure. It's very universal and is language dependent which means that it will be able to work easily with any programming language. However, storing a JSON string inside a relational database like SQLite is not very efficient as we would be building a database with in a column of the database. Thus, the more resonable approach to this would be 
+
+
+
+
 
 ![](Assets/JS_Showcase.jpg)
 
@@ -611,7 +627,38 @@ For each recipe found, there's an additional step of fetching the username of th
 
 Finally, the list of search results is passed back to the Flask route, which then calls render_template to generate the HTML output. The search results are neatly packaged into a context dictionary that the search.html template uses to display the information on the web page.
 
-### File segmentation(add if needed)
+### PDF Downloads(Success Criteria #7)
+
+My client wanted the ability to download recipe as PDFs. This function allows the end-user to be able to download and print out the pdf for the specific recipe and serving size without having to log into the website everytime and checking. This is done by a rendering engine in the server. First and foremost, there is definitely a download button on the recipe page. 
+
+```html
+<a href="/recipe/download/{{ recipe.id }}/"><button class="btn btn-primary" type="button" id="downloadRecipe">Download Recipe</button></a>
+```
+
+I started out developing this button to link back to a donwload endpoint, where the function receives the recipe id from request. It would then render the according to recipe data from database. This is the code:
+
+```python
+#Function definition and token authentication is omitted for demonstrative purposes
+#Renders template file with Flask and jinja2 engine
+rendered = render_template('recipe.html')
+#Uses WeasyPrint Libray to put rendered html into pdf
+pdf = HTML(string=rendered).write_pdf()
+#Constructing pdf into a response
+response = make_response(pdf)
+#Setting parameters for response
+response.headers['Content-Type'] = 'application/pdf'
+response.headers['Content-Disposition'] = 'attachment; filename=output.pdf'
+#Send the response
+return response
+```
+
+However this has one issue. It is not able to render the amount of servings accordingly. To address this issues, I tried multiple methods of form submission and `POST` requests but all to no avail, some failed to render correctly, while others threw errors such as not being able to find certain resources. In light of this, I resorted to use client-side javascript to tell the client's browser to print the screen with the following code:
+
+```html
+<button class="btn btn-primary" type="button" onclick="window.print()">Print Recipe</button>
+```
+
+When this button is click, the javascript calls back to the window object of the webpage and uses the `print()` function inside that object to trigger the browser to print the page with the printing dialog. This allows the client to turn their current viewing recipe into a pdf without reaching out to the server once more while also preserving the servings counter for the desired number of servings.
 
 # Criteria D: Functionality
 
@@ -631,6 +678,7 @@ Finally, the list of search results is passed back to the Flask route, which the
 | Users should be able to like/dislike certain posts to increase authenticity of posted content | Yes  | The website allows for liking/disliking for specific posts via `add_like/` and `add_dislike/` endpoints |
 | The website will be able to sort the posts by user/amount of likes/time posted | Yes  | The website allows for sorting by time and like count on the home page |
 | The website should allow for the changing of passwords per user | Yes  | The website allows for changing passwords with a button on the `my_profile/` endpoint |
+|                                                              |      |                                                              |
 
 The client is very satisfied by the product(See Appendix 3), with the website meeting all the success criteria. During
 beta testing, the client suggested to add a confirmation dialog for deleting posts to eliminate accidental deletion (See
@@ -650,10 +698,7 @@ as that would make it easier to sort through what they are looking for.
 The client was very satisfied with the final result, as it met all of his requirements. After some additional discussion,
 we concluded that the following future extensions could be added:
 
-1. Commenting System - A commenting system to be added to posts as it could let other users give their own opinion with
-   another piece of code. This could be done using a new table inside the database.
-2. Sorting option "By Code Language" - An option can be added to allow for filtering by code language so people with specific language needs can find it more easily.
-3. Limit Likes to one per user per post - Limiting likes to one per user can reduce the chances of spamming likes and more accurate rating of the code being posted.
+1. 
 
 # Appendix
 
