@@ -16,15 +16,7 @@ Considering the client's requirements, an adequate solution would be social-medi
 inside a database. The most common tools for web development are Javascript, HTML, CSS[^8]but Javascript is a
 client-side language, which means that code is executed on the user's browser. This can make it vulnerable to attacks
 like cross-site scripting (XSS). To remedy this, Python would be an adequate programming language for that as it is not
-a client-side language, open sourced, mature and excels at memory management[^2]. To host the website, Flask would be
-an adequate choice as it is highly scalable, making it fit to the client's need for a school use website without
-overcomplicating resources[^3].For the database, SQLite would be a good fit as the data we are fitting is not very large
-and SQLite, with its embedded,serverless nature[^4], can reduce the use of computing resources while running the
-website, not to mention higher speeds. To interface with the SQLAlchemy is the choice to go as it has improved
-performance and is protected against security attacks[^5]. As for the user interface for the website, Bootstrap 5 is
-recommended for its dynamic scaling abilities to scale automatically for different devices[^6].To keep the website and
-their users secure, JSON web tokens are used because they are resistant to security attacks[^7] and can prevent
-malicious users from modifying the key to access unauthorized content.
+a client-side language, open sourced, mature and excels at memory management[^2]. As for the choice of web server framework, Flask would be an adequate choice as it is the scale of the website isn't so large that it requires more sophisticated frameworks like Django, making it fit to the client's need for a school use website without overcomplicating resources[^3][^9].For the database, SQLite would be a good fit as the data we are fitting is not very large and SQLite, with its embedded,serverless nature[^4], can reduce the use of computing resources while running the website, not to mention higher speeds. To interface with database, the SQLAlchemy is the prefered interface layer as it has performance advantages and is protected against security attacks such as SQL injections[^5]. As for the user interface for the website, Bootstrap 5 is recommended for its dynamic scaling abilities to scale automatically for different devices[^6].To keep the website and their users secure, JSON web tokens are used because they are resistant to security attacks[^7] and can prevent malicious users from modifying the key to access unauthorized content.
 
 [^2]: Python Geeks. “Advantages of Python: Disadvantages of Python.” Python Geeks, 26 June 2021, https://pythongeeks.org/advantages-disadvantages-of-python
 [^3]: “6 Reasons Why Flask Is Better Framework for Web Application Development.”*Able*, https://able.bio/hardikshah/6-reasons-why-flask-is-better-framework-for-web-application-development--cd398f73.
@@ -34,6 +26,7 @@ malicious users from modifying the key to access unauthorized content.
 [^7]: “What Is JWT?: Akana by Perforce.”*Akana*, https://www.akana.com/blog/what-is-jwt#:~:text=Why%20Use%20JWT%3F,was%20signed%20by%20the%20issuer.
 
 [^8]: “11 Most in-Demand Programming Languages in 2023.” *Berkeley Boot Camps*, 5 Jan 2023, https://bootcamp.berkeley.edu/blog/most-in-demand-programming-languages/.
+[^9]: “Flask vs Django: Let’s Choose Your next Python Framework.” Kinsta®, 13 Sept. 2023, kinsta.com/blog/flask-vs-django/#:~:text=Flask%20tends%20to%20be%20simpler,%2C%20demands%2C%20and%20existing%20requirements. Accessed 07 Dec. 2023. 
 
 ### Design statement
 
@@ -56,17 +49,19 @@ will be evaluated according to the criteria below:
 
 ## System Diagram
 
-![](Assets/SysD2.jpeg)
+![](Assets/SysD3.jpeg)
 
-**Fig.1** *System diagram of the Website*
+**Fig.1** *System diagram of the Website* This diagram shows the system design of the RecipeShare social media. This system design consists of two main parts. The first part is the flask server on top. In my case, I'm using a server running macOS. This server houses the flask application inside a Python virtual environment. This server also holds the SQLite database which is responsible for storing user data. The client, on the bottom, connects to the server on a browser through the internet with HTTP `GET` and `POST` requests. The user inputs data using the keyboard and trackpad or mouse and the output is displayed on the screen.
 
 ## Data Storage
 
 <img src="Assets/RecipeShare_ER2.jpeg" style="zoom: 50%;" />
 
-**Fig.2** *ER diagram of the Website*
+**Fig.2** *ER diagram of the Website* This diagram shows the relational database strcuture design for this social media. As users are the core of the service, every other database column has some form of connection back to the `User` table. In my design, the user writes `Recipes` and `Comments`. In which `Recipes` have `Ingredients` in them as the number of ingredients is unpredictable to the system and that would be the most logical way to normalize the database.
 
 ### Example of Data Entries
+
+All data shown here are examples and does not reflect any real information for privacy purposes
 
 <img src="Assets/RecipeShare_RecipeTablev2.jpg" alt="CodeShareDB_User" style="zoom: 67%;" />
 
@@ -88,25 +83,25 @@ will be evaluated according to the criteria below:
 
 ![](Assets/RecipeShare_UMLv2.jpeg)
 
-**Fig.7** *UML Diagram of the website*
+**Fig.7** *UML Diagram of the website* This diagram showcases the different classes I used to group together functions I use through the program. My classes are separated into two sections. One for interacting with the database(the part in green). And two for doing authentication management(the part in blue). This is utilizing the Object-Oriented Programming structure to reduce boilerplate code and provide a level of abstraction on the main server program.
 
 ## Wireframe
 
 <img src="Assets/RecipeShare_Wireframe.jpg" style="zoom: 67%;" />
 
-**Fig.7** *Wireframe of the website*
+**Fig.7** *Wireframe of the website* This diagram showcases the preliminary design I had in mind after listening to the client's requests.
 
 ## Flow Diagrams
 
 ### Ingridients Storage into database
 
-<img src="Assets/RecipeShare_IngridientStorage.jpg" style="zoom: 25%;" />
+<img src="Assets/RecipeShare_IngridientStorage2.jpg" style="zoom: 25%;" />
 
-**Fig.7** *Flow Diagram of process of storing ingredients into database* This diagram shows how the website handles a different number of ingredients each time a new recipe is added.
+**Fig.7** *Flow Diagram of process of storing ingredients into database* This diagram shows how the website handles a different number of ingredients each time a new recipe is added. 
 
 ### Serving Calculations
 
-<img src="Assets/RecipeShare_FlowServingCalculations.jpg" style="zoom:25%;" />
+<img src="Assets/RecipeShare_FlowServingCalculations2.jpg" style="zoom:25%;" />
 
 **Fig.8** *Flow Diagram of serving calculation* This flow diagram demonstrates the ability to calculate the ingredients according to the number of servings inputted by the user.
 
@@ -250,7 +245,6 @@ architecture. It helps me with logics in code and pseudocode for parts like HTML
 10. Interacting with Databases
 11. Arrays and Lists
 12. Text Formatting
-13. JSON Strings
 14. DRY Programming Technique
 
 ## Development
@@ -342,11 +336,7 @@ When this html file is loaded on the browser, the base file is taken and the var
 
 ### Ingredients Storage(Success Criteria #2)
 
-My client needed to be able to post recipes and their respective details in an organized way. While designing the system for that, I noticed a problem. That is that there would only be one column for ingredients inside the table but there would be a different number of ingredients inputted by the user. To resolve this, I could take two approaches, one is JSON string. A JSON string is a string representation of a JSON data structure. It's very universal and is language dependent which means that it will be able to work easily with any programming language. However, storing a JSON string inside a relational database like SQLite is not very efficient as we would be building a database with in a column of the database. Thus, the more resonable approach to this would be 
-
-
-
-
+My client needed to be able to post recipes and their respective details in an organized way. While designing the system for that, I noticed a problem. That is that there would only be one column for ingredients inside the table but there would be a different number of ingredients inputted by the user. To resolve this, I could take two approaches, one is JSON string. A JSON string is a string representation of a JSON data structure. It's very universal and is language dependent which means that it will be able to work easily with any programming language. However, storing a JSON string inside a relational database like SQLite is not very efficient as we would be building a database with in a column of the database. Thus, the more resonable approach to this would be to use another table of the database with relation back to the `Recipes` table.
 
 ![](Assets/JS_Showcase.jpg)
 
@@ -383,7 +373,7 @@ if request.method == 'POST':
     ingredients = zip(ingredient_names, ingredient_amounts, ingredient_units)
 ```
 
-After collecting the raw information from the user, the zipped list is put into dictation which is then dumped into a JSON string with the `json` library as you can see below:
+After collecting the raw information from the user, the zipped list is put into dictionary as shown below
 
 ```python
 ingredients_dict_list = [
@@ -394,16 +384,47 @@ ingredients_dict_list = [
                 }
                 for ingredient_name, ingredient_amount, need_description in ingredients
             ]
-            ingredients_json = json.dumps(ingredients_dict_list)
 ```
 
-The JSON string is then stored into a column of the database on the `Recipe`. When a user clicks on the `Read More` button to load up the details of recipe. The JSON strings is loaded back into a python dictionary with the code below:
+The dictionary is then passed through to the `create_post` function in the database handler class. This function firsts creates the recipe by doing:
 
 ```python
-temp_ingredients = json.loads(recipe_details.ingredients)
+#Creates new Recipe object
+new_post = Recipe(name=title, content=content, image=unique_filename, user_id=user_id)
+#Add the newly created object to the already-opened session
+self.session.add(new_post)
+#Commit the changes
+self.session.commit()
 ```
 
-This recreates the structure of data in the exact same way as when it was stored, making represnetation to the user very clear and straightforward.
+Notice that we haven't passed through the ingredients but we have commited the changes already. That is because the ingredients require the recipe `id` as a foreign key so we cannot commit the changes at the same time as we would not know what `id` would be assigned to that recipe before commiting the changes. Thus after this, a for loop is used to loop through each item in the dictionary to add them to the database:
+
+```python
+for ingredient in ingredients_dictionary:
+  new_ingredient = Ingredients(name=ingredient["name"], amount=ingredient["amount"], unit=ingredient["unit"], recipe_id=new_post.id)
+  self.session.add(new_ingredient)
+```
+
+After this we do another commit to the database using 
+
+```python
+self.session.commit()
+```
+
+When it comes time to retrieve the data, or that is to say, when the user clicks on the `Read More` button on the dashboard, the server requests the `recipe` by id. Which then the database handler queries the database for the recipe and the ingredients separately:
+
+```python
+#Database handler receives id as input
+def get_one_post(self, id):
+  	#Recipe table is queried by id
+    recipe =  self.session.query(Recipe).filter_by(id=id).first()
+    #Ingredients table is queried by id
+    ingredients = self.session.query(Ingredients).filter_by(recipe_id=id).all()
+    #List is returned with username of poster as well as the other information being queried
+    return [recipe,self.session.query(Users).filter_by(id=temp.user_id).first().username,ingredients]
+```
+
+The flask application then passes the list to the html file and the `jinja2` logic creates the ingridients by column automatically as shown below.
 
 ![](Assets/ingredients_eg.jpg)
 

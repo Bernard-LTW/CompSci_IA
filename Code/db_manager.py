@@ -45,6 +45,7 @@ class DBHandler:
             new_ingredient = Ingredients(name=ingredient["name"], amount=ingredient["amount"], unit=ingredient["unit"], recipe_id=new_post.id)
             self.session.add(new_ingredient)
         self.session.commit()
+        return
 
     def get_all_posts(self):
         temp = self.session.query(Recipe).all()
