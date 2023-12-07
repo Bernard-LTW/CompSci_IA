@@ -14,9 +14,7 @@ My client is a housewife that really like cooking. She and her neighbours like s
 
 Considering the client's requirements, an adequate solution would be social-media styled website that can store data
 inside a database. The most common tools for web development are Javascript, HTML, CSS[^8]but Javascript is a
-client-side language, which means that code is executed on the user's browser. This can make it vulnerable to attacks
-like cross-site scripting (XSS). To remedy this, Python would be an adequate programming language for that as it is not
-a client-side language, open sourced, mature and excels at memory management[^2]. As for the choice of web server framework, Flask would be an adequate choice as it is the scale of the website isn't so large that it requires more sophisticated frameworks like Django, making it fit to the client's need for a school use website without overcomplicating resources[^3][^9].For the database, SQLite would be a good fit as the data we are fitting is not very large and SQLite, with its embedded,serverless nature[^4], can reduce the use of computing resources while running the website, not to mention higher speeds. To interface with database, the SQLAlchemy is the prefered interface layer as it has performance advantages and is protected against security attacks such as SQL injections[^5]. As for the user interface for the website, Bootstrap 5 is recommended for its dynamic scaling abilities to scale automatically for different devices[^6].To keep the website and their users secure, JSON web tokens are used because they are resistant to security attacks[^7] and can prevent malicious users from modifying the key to access unauthorized content.
+client-side language, which means that code is executed on the user's browser. This can burden the client's computer with heavy tasks. To remedy this, Python would be an adequate programming language for more heavy tasks in the web application as it is not a client-side language, open sourced, mature and excels at memory management[^2]. As for the choice of web server framework, Flask would be an adequate choice as it is the scale of the website isn't so large that it requires more sophisticated frameworks like Django, making it fit to the client's need for a school use website without overcomplicating resources[^3][^9].For the database, SQLite would be a good fit as the data we are fitting is not very large and SQLite, with its embedded,serverless nature[^4], can reduce the use of computing resources while running the website, not to mention higher speeds. To interface with database, the SQLAlchemy is the prefered interface layer as it has performance advantages and is protected against security attacks such as SQL injections[^5]. As for the user interface for the website, Bootstrap 5 is recommended for its dynamic scaling abilities to scale automatically for different devices[^6].To keep the website and their users secure, JSON web tokens are used because they are resistant to security attacks[^7] and can prevent malicious users from modifying the key to access unauthorized content.
 
 [^2]: Python Geeks. “Advantages of Python: Disadvantages of Python.” Python Geeks, 26 June 2021, https://pythongeeks.org/advantages-disadvantages-of-python
 [^3]: “6 Reasons Why Flask Is Better Framework for Web Application Development.”*Able*, https://able.bio/hardikshah/6-reasons-why-flask-is-better-framework-for-web-application-development--cd398f73.
@@ -44,6 +42,8 @@ will be evaluated according to the criteria below:
 5. The website would allow putting picture on each posted receipe*(Issue tackled:"They tried using text messages but found it very hard to keep track of and hard to view.")*
 6. The website would allow searching for recipes with the ingredients *(Issue tackled:"They tried using text messages but found it very hard to keep track of and hard to view.")*
 7. The website would allow for exporting the recipe to a PDF  *(Issue tackled: "very hard to keep track of")*
+
+<div style="page-break-after: always"></div>
 
 # Criteria B: Design
 
@@ -127,6 +127,8 @@ All data shown here are examples and does not reflect any real information for p
 | Unit Testing        | PDF Export                 | 1.Open Website<br />2.Login<br />3.Click on a post<br />4.Click the "Print Recipe" button<br />5.Save as PDF using the popped up dialog | The user should be able to download a pdf of the opened recipe |
 | Code Review         | Reviewing Code             | Going through the code and making sure unused parts are removed, variables are named properly and comments are placed appropriated | Easy to understand and easy to debug code for future development. |
 
+<div style="page-break-after: always"></div>
+
 ## Record of Tasks
 
 | Task No | Planned Action                                               | Planned Outcome                                              | Time estimate | Target completion date | Criterion |
@@ -195,6 +197,8 @@ All data shown here are examples and does not reflect any real information for p
 | 62      | Implementation: Evaluation by client                         | To have the website evaluated by the client and the subsequent evidence documented | 1hr           |                        | E         |
 | 63      | Beta Testing: Evaluation by peer                             | To have the website evaluated by a peer and the subsequent evidence documented | 1hr           |                        | E         |
 | 64      | Implementation: Collect Recommendations from users/client    | To have taken in recommendations from both evaluations on how the website can be improved and document them properly | 15min         |                        | E         |
+
+<div style="page-break-after: always"></div>
 
 # Criteria C: Development
 
@@ -679,13 +683,17 @@ However this has one issue. It is not able to render the amount of servings acco
 <button class="btn btn-primary" type="button" onclick="window.print()">Print Recipe</button>
 ```
 
-When this button is click, the javascript calls back to the window object of the webpage and uses the `print()` function inside that object to trigger the browser to print the page with the printing dialog. This allows the client to turn their current viewing recipe into a pdf without reaching out to the server once more while also preserving the servings counter for the desired number of servings.
+When this button is clicked, the javascript calls back to the window object of the webpage and uses the `print()` function inside that object to trigger the browser to print the page with the printing dialog. This allows the client to turn their current viewing recipe into a pdf without reaching out to the server once more while also preserving the servings counter for the desired number of servings.
+
+<div style="page-break-after: always"></div>
 
 # Criteria D: Functionality
 
 ## Demonstration Video
 
-[Click here for the Video](https://drive.google.com/file/d/1EU9FcRAd8hMcryzWx1urgHR3QDPPmpq5/view?usp=share_link)
+[Click here for the Video](https://drive.google.com/drive/folders/1JOyAGobjKdZ32JniPXS8psKatWZlygEW?usp=drive_link)
+
+<div style="page-break-after: always"></div>
 
 # Criteria E: Evaluation
 
@@ -693,13 +701,13 @@ When this button is click, the javascript calls back to the window object of the
 
 | Success Criteria                                             | Met? | Description                                                  |
 | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
-| The website must keep users separately with an encrypted login system | Yes  | Users are secured behind a hashed login system and token system |
-| The website must be able to represent code with the correct syntax highlighting for the appropriate language and the correct indentations | Yes  | The website is able to represent code with correct syntax highlighting and indentation with the prism.js module |
-| The website must allow posting of code and description       | Yes  | The website allows for posting new content via the `new_post/` endpoint |
-| Users should be able to like/dislike certain posts to increase authenticity of posted content | Yes  | The website allows for liking/disliking for specific posts via `add_like/` and `add_dislike/` endpoints |
-| The website will be able to sort the posts by user/amount of likes/time posted | Yes  | The website allows for sorting by time and like count on the home page |
-| The website should allow for the changing of passwords per user | Yes  | The website allows for changing passwords with a button on the `my_profile/` endpoint |
-|                                                              |      |                                                              |
+| The website must allow user registration for personal accounts secured with a token system | Yes  | Users are secured behind a hashed login system and token system |
+| The website must allow for posting of recipes and their respective details | Yes  | The website allows for posting new content via the `new_post/` endpoint |
+| The website must allow for commenting on each recipe posted  | Yes  | This website allows for commenting on each recipe with the comments section under each post and the `add_comment` endpoint |
+| The website must allow for calculating the amount of ingredients needed based on the number of serving inputted by the user | Yes  | The website allows for calculating the amount based on the inputted number with client-side Javascript |
+| The website must allow putting picture on each posted recipe | Yes  | The website allows for posting pictrues alongside posts with the `add_post` endpoint |
+| The website must allow searching for recipes                 | Yes  | The website allows for search through the social media a dedicated `/search` page |
+| The website must allow for exporting the recipe in PDF form  | Yes  | The website allows for exporting to PDF using client-side Javascript |
 
 The client is very satisfied by the product(See Appendix 3), with the website meeting all the success criteria. During
 beta testing, the client suggested to add a confirmation dialog for deleting posts to eliminate accidental deletion (See
@@ -719,7 +727,10 @@ as that would make it easier to sort through what they are looking for.
 The client was very satisfied with the final result, as it met all of his requirements. After some additional discussion,
 we concluded that the following future extensions could be added:
 
-1. 
+
+
+<div style="page-break-after: always"></div>
+
 
 # Appendix
 
@@ -727,7 +738,7 @@ we concluded that the following future extensions could be added:
 
 **Appendix.1** *Rough notes from first meeting with client, includes basic ideas behind problem with current solution*
 
-![](Assets/SuccessCriteriaConfirm.jpg)
+![](Assets/SuccessCriteriaConfirm2.jpg)
 
 **Appendix.2** *Contact between developer and client approving success criteria*
 
