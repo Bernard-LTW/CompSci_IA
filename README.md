@@ -24,13 +24,13 @@ client-side language, which means that code is executed on the user's browser. T
 [^7]: “What Is JWT?: Akana by Perforce.”*Akana*, https://www.akana.com/blog/what-is-jwt#:~:text=Why%20Use%20JWT%3F,was%20signed%20by%20the%20issuer.
 
 [^8]: “11 Most in-Demand Programming Languages in 2023.” *Berkeley Boot Camps*, 5 Jan 2023, https://bootcamp.berkeley.edu/blog/most-in-demand-programming-languages/.
-[^9]: “Flask vs Django: Let’s Choose Your next Python Framework.” Kinsta®, 13 Sept. 2023, kinsta.com/blog/flask-vs-django/#:~:text=Flask%20tends%20to%20be%20simpler,%2C%20demands%2C%20and%20existing%20requirements. Accessed 07 Dec. 2023. 
+[^9]: “Flask vs Django: Let’s Choose Your next Python Framework.” Kinsta®, 13 Sept. 2023, kinsta.com/blog/flask-vs-django/#:~:text=Flask%20tends%20to%20be%20simpler,%2C%20demands%2C%20and%20existing%20requirements. Accessed 07 Dec. 2023.
 
 ### Design statement
 
 I will design a social media platform on a website built with Flask, Bootstrap, HTML, and CSS which stores data in an
-SQLite database for me and my classmates. This website will allow my client and her neighbours to post receipes and ingredients of
-them accordingly, with a comment system to provide feedback. It will take approximately 1 month to complete and
+SQLite database for my client and her neighbours. This website will allow my client and her neighbours to post receipes and ingredients of
+them accordingly, with a comment system to provide feedback. It will take approximately 2 months to complete and
 will be evaluated according to the criteria below:
 
 ## Success Criteria
