@@ -1,4 +1,4 @@
-Bernard's IA: Recipe Sharing Website
+# Bernard's IA: Recipe Sharing Website
 
 <img src="Assets/DALLE_Flask.jpeg" style="zoom:50%;" />[^1]
 
@@ -8,13 +8,13 @@ Bernard's IA: Recipe Sharing Website
 
 ## Problem definition(Client identification)
 
-My client is a housewife that really like cooking. She and her neighbours like sharing recipes with each other. However, they noticed that there is a lack of a platform to share their receipes. They tried using text messages but found it very hard to keep track of and hard to view. Not to mention, each family's receipes are for different amounts of people so it's very hard to accurate gauge how much ingredients is needed for multiple servings. Credibility is also a question my client noticed. (See evidence of consultation in Appendix 1)
+My client is a housewife that really like cooking. She and her neighbours like sharing recipes with each other. However, they noticed that there is a lack of a platform to share their receipes. They tried using text messages but found it very hard to keep track of and hard to view. Not to mention, each family's receipes are for different amounts of people so it's very hard to accurate gauge how much ingredients is needed for multiple servings. Credibility is also a question my client noticed. (Evidence of consultation in Appendix 1)
 
 ## Proposed Solution
 
 Considering the client's requirements, an adequate solution would be social-media styled website that can store data
 inside a database. The most common tools for web development are Javascript, HTML, CSS[^8]but Javascript is a
-client-side language, which means that code is executed on the user's browser. This can burden the client's computer with heavy tasks. To remedy this, Python would be an adequate programming language for more heavy tasks in the web application as it is not a client-side language, open sourced, mature and excels at memory management[^2]. As for the choice of web server framework, Flask would be an adequate choice as it is the scale of the website isn't so large that it requires more sophisticated frameworks like Django, making it fit to the client's need for a school use website without overcomplicating resources[^3][^9].For the database, SQLite would be a good fit as the data we are fitting is not very large and SQLite, with its embedded,serverless nature[^4], can reduce the use of computing resources while running the website, not to mention higher speeds. To interface with database, the SQLAlchemy is the prefered interface layer as it has performance advantages and is protected against security attacks such as SQL injections[^5]. As for the user interface for the website, Bootstrap 5 is recommended for its dynamic scaling abilities to scale automatically for different devices[^6].To keep the website and their users secure, JSON web tokens are used because they are resistant to security attacks[^7] and can prevent malicious users from modifying the key to access unauthorized content.
+client-side language, which means that code is executed on the user's browser. This can burden the client's computer with heavy tasks. To remedy this, Python would be an adequate programming language for more heavy tasks in the web application as it is not a client-side language, open sourced, mature and excels at memory management[^2]. As for the choice of web server framework, Flask would be an adequate choice as it is the scale of the website isn't so large that it requires more sophisticated frameworks like Django, making it fit to the client's need for a school use website without overcomplicating resources[^3][^9].For the database, SQLite would be a good fit as the data we are fitting is not very large and SQLite, with its embedded,serverless nature[^4], can reduce the use of computing resources while running the website, not to mention higher speeds. To interface with database, the SQLAlchemy is the prefered interface layer as it has performance advantages and is protected against security attacks such as SQL injections[^5]. As for the user interface for the website, Bootstrap 5 is recommended for its dynamic scaling abilities to scale automatically for different devices[^6].To keep the website and their users secure, JSON web tokens are used because they are resistant to security attacks[^7] 
 
 [^2]: Python Geeks. “Advantages of Python: Disadvantages of Python.” Python Geeks, 26 June 2021, https://pythongeeks.org/advantages-disadvantages-of-python
 [^3]: “6 Reasons Why Flask Is Better Framework for Web Application Development.”*Able*, https://able.bio/hardikshah/6-reasons-why-flask-is-better-framework-for-web-application-development--cd398f73.
@@ -28,8 +28,8 @@ client-side language, which means that code is executed on the user's browser. T
 
 ### Design statement
 
-I will design a social media platform on a website built with Flask, Bootstrap, HTML, and CSS which stores data in an
-SQLite database for my client and her neighbours. This website will allow my client and her neighbours to post receipes and ingredients of
+I will design a social media platform on a website built with Flask, HTML, and CSS which stores data in an
+SQLite database for my client. This website will allow my client to post receipes and ingredients of
 them accordingly, with a comment system to provide feedback. It will take approximately 2 months to complete and
 will be evaluated according to the criteria below:
 
@@ -38,7 +38,7 @@ will be evaluated according to the criteria below:
 1. The website must allow user registration for personal accounts secured*(Issue tackled: "Credibility is also a question my client noticed" and "found it very hard to keep track of")*
 2. The website must allow for posting of recipes and their respective details *(Issue tackled: "there is a lack of a platform to share their receipes.")*
 3. The webiste must allow for commenting on each recipe posted  *(Issue tackled: "very hard to keep track of")*
-4. The website must allow for calculating the amount of ingredients needed based on the number of serving inputted by the user *(Issue tackled: "it's very hard to accurate gauge how much ingredients is needed for multiple servings.")*
+4. The website must allow for calculating the amount of ingredients needed based on user input *(Issue tackled: "it's very hard to accurate gauge how much ingredients is needed for multiple servings.")*
 5. The website would allow putting picture on each posted receipe*(Issue tackled:"They tried using text messages but found it very hard to keep track of and hard to view.")*
 6. The website would allow searching for recipes with the ingredients *(Issue tackled:"They tried using text messages but found it very hard to keep track of and hard to view.")*
 7. The website would allow for exporting the recipe to a PDF  *(Issue tackled: "very hard to keep track of")*
@@ -194,9 +194,9 @@ All data shown here are examples and does not reflect any real information for p
 | 59      | Development: Cleaning up Code                                | To have the code finalized and organized for easy-understanding | 30 min        | 2023-10-26             | C         |
 | 60      | Planning: Creating Test Plan                                 | To have a test plan created for confirming if the application works to standard | 30min         | 2023-10-27             | B         |
 | 61      | Planning: Finalizing Test Plan                               | To have the test plan finalized                              | 30 min        | 2023-10-28             | B         |
-| 62      | Implementation: Evaluation by client                         | To have the website evaluated by the client and the subsequent evidence documented | 1hr           |                        | E         |
-| 63      | Beta Testing: Evaluation by peer                             | To have the website evaluated by a peer and the subsequent evidence documented | 1hr           |                        | E         |
-| 64      | Implementation: Collect Recommendations from users/client    | To have taken in recommendations from both evaluations on how the website can be improved and document them properly | 15min         |                        | E         |
+| 62      | Implementation: Evaluation by client                         | To have the website evaluated by the client and the subsequent evidence documented | 1hr           | 2023-12-28             | E         |
+| 63      | Beta Testing: Evaluation by peer                             | To have the website evaluated by a peer and the subsequent evidence documented | 1hr           | 2023-12-29             | E         |
+| 64      | Implementation: Collect Recommendations from users/client    | To have taken in recommendations from both evaluations on how the website can be improved and document them properly | 15min         | 2023-12-30             | E         |
 
 <div style="page-break-after: always"></div>
 
@@ -215,47 +215,32 @@ All data shown here are examples and does not reflect any real information for p
 | dotenv       |
 | Python-jose  |
 
-## References
+| References                                                   | Notes                                                        |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Bootstrap 5 Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) | Bootstrap 5's official documentation is what I referenced regarding UI elements of my website.<br/>Snippets of code for modals, cards, headers and footer have been taken from the documentation and have been since modified to fit the needs of the current application |
+| [ChatGPT](https://chat.openai.com)                           | ChatGPT is a large language model developed by OpenAI, based on the GPT (Generative Pre-trained Transformer)<br/>architecture. It helps me with logics in code and pseudocode for parts like HTML, JavaScript and JWT tokens.<br />***Disclaimer*** *No part of this program includes code blocks directly copied from ChatGPT* |
 
-### [Bootstrap 5 Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-
-Bootstrap 5's official documentation is what I referenced regarding UI elements of my website.
-Snippets of code for modals, cards, headers and footer have been taken from the documentation and have been since modified to fit the needs of the current application
-
-### [ChatGPT](https://chat.openai.com)
-
-ChatGPT is a large language model developed by OpenAI, based on the GPT (Generative Pre-trained Transformer)
-architecture. It helps me with logics in code and pseudocode for parts like HTML, JavaScript and JWT tokens.
-
-***Disclaimer*** *No part of this program includes code blocks directly copied from ChatGPT*
-
-#### Example use of ChatGPT
-
-![](Assets/ChatGPTUse.jpg)
-
-**Fig.10**  *Conversation with ChatGPT screenshotted on 2023-10-26*
-
-## List of Techniques
-
-1. Object-Oriented Programming(OOP)
-2. Object Relation Mapping(ORM): SQLAlchemy
-3. Flask Library/Routes
-4. Javascript/Python inside HTML
-5. CSS Styling
-6. For loops for showing posts
-7. if statements
-8. Password Hashing
-9. Token-based authentication
-10. Interacting with Databases
-11. Arrays and Lists
-12. Text Formatting
-14. DRY Programming Technique
+| Techniques                               |
+| ---------------------------------------- |
+| Object-Oriented Programming(OOP)         |
+| Object Relation Mapping(ORM): SQLAlchemy |
+| Flask Library/Routes                     |
+| Javascript/Python inside HTML            |
+| CSS Styling                              |
+| For loops for showing posts              |
+| If statements                            |
+| Password Hashing                         |
+| Token-based authentication               |
+| Interacting with Databases               |
+| Arrays and Lists                         |
+| Text Formatting                          |
+| DRY Programming Technique                |
 
 ## Development
 
 ### JSON Web Tokens (Success Criteria #1)
 
-One of the success criteria was to have a hashed login system. One issue I had after the user logged in which was that I could not recognize the user after the initial login process. One Idea I had was to use cookies to store the user id. It can be easily retreived by the backend when needed and takes up little system resources. However, I realized after wards that cookies can be easily modified on the client's side and render the hashed passwords useless. Soon I discovered session tokens. Session token are basically a hash created when the user successfully logs in and is the pass the user holds to perform previleged actions on the website. They expire after a time designated by the developer and can be used to protect the user as it is hashed using a special secret key that only the developer has control over. Currently, once the user successfully logs in with the right username and password. The main function on the flask endpoint executes a `create_token` function from the `token_management.py`. The token is created as follows:
+One of the success criteria was to have a hashed login system. I tried to use cookies as it can be easily retreived by the backend when needed and takes up little system resources. However, I realized after that cookies can be easily modified on the client's side. Thus I turned to session tokens. Session token are basically a hash created when the user successfully logs in and is the pass the user holds to perform previleged actions on the website. They expire after a designated time and is hashed using a special secret key. Currently, once the user successfully logs in with the right username and password, the main function on the flask endpoint executes a `create_token` function from the `token_management.py`. The token is created as follows:
 
 ```py
 # This functions takes in the username and the how long the token should last in minutes
@@ -313,40 +298,13 @@ def check_token(token): # check if token is valid and not expired
 
 The main function then receives a boolean value of whether the user is valid in an active session and lets them proceed with the desired action accordingly. This system closes the loophole of modifying cookies and completes the hashed authentication system criteria.
 
-### Base Template(Pattern Recognition/Generalization/Abstraction)
-
-As the header and footer needs to be present in every single page, it creates a lot of repetition and boilerplate code in my program. Boilerplate code is referring to parts of code that has to be repeatedly be used with no or a little modification. This is especially present in HTML as it is declarative language. If the code for the header and footer is repeated every time a new page is needed, it would make my code very repetitive and make it hard when I have to change one thing in the header or the footer as I have to change it in every file seperately. Thus, I decided to used a template file, where the header and footer is housed inside one file only, and other files extends from this base file to add their own respective content. The base file starts out like a normal html file with the necessary scripts and CSS files imported, but in the main body, only one line is added:
-
-```html
-{% block content%}{% endblock %}
-```
-
-This line opens up a variable called `content` in the base template. On the other files, it is indicated on the first
-line that the file is extending the base file:
-
-```html
-{% extends "base_template.html" %}
-```
-
-After that the child file can add content into the variable with the same line:
-
-```html
-{% block content%}
-{# Normal HTML for the main body of the page. Omitted here because of length#}
-{% endblock %}
-```
-
-When this html file is loaded on the browser, the base file is taken and the variables from the child file is being stitched together automatically into one single HTML file. That way, if I need to change anything on the header/footer or change out dependencies, I only need to change it once and it will spread across all pages, improving efficiency and future development upgradibility.
-
 ### Ingredients Storage(Success Criteria #2)
 
-My client needed to be able to post recipes and their respective details in an organized way. While designing the system for that, I noticed a problem. That is that there would only be one column for ingredients inside the table but there would be a different number of ingredients inputted by the user. To resolve this, I could take two approaches, one is JSON string. A JSON string is a string representation of a JSON data structure. It's very universal and is language dependent which means that it will be able to work easily with any programming language. However, storing a JSON string inside a relational database like SQLite is not very efficient as we would be building a database with in a column of the database. Thus, the more resonable approach to this would be to use another table of the database with relation back to the `Recipes` table.
+My client needed to be able to post recipes and their respective details in an organized way. While designing the system for that, I noticed a problem. That is that there would only be one column for ingredients inside the table but there would be a different number of ingredients inputted by the user. To resolve this, I chose to use another table of the database.
 
 ![](Assets/JS_Showcase.jpg)
 
-**Fig.11**  *Screenshot showing the section for inputting ingredients*
-
-In my implementation, on the client side, they are able to easily add text fields to the form they are typing in. This is achieved through JS on the client side.
+**Fig.11**  *Screenshot showing the section for inputting ingredients. In my implementation, on the client side, they are able to easily add text fields to the form they are typing in. This is achieved through JS on the client side. When the user clicks the `Add Item` button, it triggers the javascript to create a new set of elements for a new ingridient. When the user clicks the `delete` button, it removes the set of elements from the HTML. Allowing the user to dynamically adjust the form to the needs of their recipe.*
 
 ```javascript
 document.getElementById('addInputBtn').addEventListener('click', function () {
@@ -360,8 +318,6 @@ document.getElementById('addInputBtn').addEventListener('click', function () {
     document.getElementById('newInputs').appendChild(newDiv);
 });
 ```
-
-When the user clicks the `Add Item` button, it triggers the javascript to create a new set of elements for a new ingridient. When the user clicks the `delete` button, it removes the set of elements from the HTML. Allowing the user to dynamically adjust the form to the needs of their recipe.
 
 When a user submits a form, it is done through a `POST` request. The flask application then collects the information for the ingredients' name, amount and unit separately and zips them into a list along with collecting other information for the form as shown below:
 
@@ -407,15 +363,11 @@ Notice that we haven't passed through the ingredients but we have commited the c
 for ingredient in ingredients_dictionary:
   new_ingredient = Ingredients(name=ingredient["name"], amount=ingredient["amount"], unit=ingredient["unit"], recipe_id=new_post.id)
   self.session.add(new_ingredient)
+  #After this we do another commit to the database using 
+  self.session.commit()
 ```
 
-After this we do another commit to the database using 
-
-```python
-self.session.commit()
-```
-
-When it comes time to retrieve the data, or that is to say, when the user clicks on the `Read More` button on the dashboard, the server requests the `recipe` by id. Which then the database handler queries the database for the recipe and the ingredients separately:
+When it comes time to retrieve the data,the server requests the `recipe` by id. Which then the database handler queries the database for the recipe and the ingredients separately:
 
 ```python
 #Database handler receives id as input
@@ -428,7 +380,7 @@ def get_one_post(self, id):
     return [recipe,self.session.query(Users).filter_by(id=temp.user_id).first().username,ingredients]
 ```
 
-The flask application then passes the list to the html file and the `jinja2` logic creates the ingridients by column automatically as shown below.
+The flask application then passes the list to the html file and the `jinja2` logic creates the ingridients by column automatically.
 
 ![](Assets/ingredients_eg.jpg)
 
@@ -458,13 +410,13 @@ My client specifically requested for the ability to comment on recipes. To achie
 </div>
 ```
 
-As you can see, when the recipe is loaded,the database is queried for comments with the same id as the recipe for the foreign key. After the results of that query is passed through to the HTML, I used jinja2's loop function to create a section for each comment made, showing the author and the content of the comment.
+As you can see, when the recipe is loaded,the database is queried for comments with the same id in the foreign key. After the results of that query is passed through to the HTML, I used jinja2's loop function to create a section for each comment made, showing the author and the content of the comment.
 
 ![](Assets/Comments.jpg)
 
-**Fig.13**  *Screenshot showing the section for comments*
+**Fig.13**  *Screenshot showing the section for comments. To post a comment, the user would put the comment in the textbox and press `Post Comment`. That will trigger a form submission into the flask application and it would be processed with a function.*
 
-To post a comment, the user would put the comment in the textbox above and press `Post Comment`. That will trigger a form submission into the flask application and it would be processed with a function. 
+
 
 ```python
 def add_comment(recipe_id):
@@ -484,17 +436,9 @@ def add_comment(recipe_id):
 
 
 
-Inside the first omitted section in the HTML I also included an if statement to check if the logged in user is the user who wrote the comment, and if so, include a delete button for the user to be able to delete their comment. The delete button is an endpoint on the flask application called `/recipe/<int:recipe_id>/delete_comment/<int:comment_id>/` ,It handles the removal of comments on the Python side by the code same as above but with one different line:
-
-```python
-db.remove_comment(recipe_id, comment_id, username)
-```
-
-This line calls back to the database handler to remove the selected comment from the database and completes the success criteria.
-
 ### Serving Calculations(Success Criteria #4)
 
-My client also requested for the ability to calculate the amounts of ingredients needed to make the number of servings inputted by the user. As when the recipe is created, the user is asked to input the ingredients in a systematic manner as seen in **Fig.11**, calculating the amount of ingredients needed for `x` serving should be as simple as multiplying the dataset we have stored in the database by `x`. This could be achieved in two ways. One way is to use a hyperlink to a flask endpoint which receives the recipe id and does the calculations in Python. This mean that each time a user increments the servings counter by 1, the whole html file would need to be reloaded and rendered from the server. This is very ineffiecient as we are only trying to change a few values on the HTML file and reloading the whole HTML would cost much more bandwidth and decrease responsiveness of the website. Becasue of this reason, I chose to use Javascript on the HTML. This would make the calculations local on the client's browser, eliminating the need of calling back to the main server to get a multiplication done. To achieve this, I first created a counter object in HTML as shown below:
+My client also requested for the ability to calculate the amounts of ingredients needed to make the number of servings inputted by the user. As when the recipe is created, the user is asked to input the ingredients in a systematic manner as seen in **Fig.11**. I chose to use Javascript on the HTML.  To achieve this, I first created a counter object in HTML as shown below:
 
 ![](Assets/ServingCounter.jpg)
 
@@ -519,7 +463,7 @@ const minusButton = document.getElementById('minusButton');
 const plusButton = document.getElementById('plusButton');
 ```
 
-These three lines define variables to allow the javascript to interact with the data in HTML. After defining the variables that allow the JavaScript to interact with the data in the HTML, the script continues by creating the `updateIngredients()` function. This function is the core of our interactive serving size feature.
+These lines define variables to allow the javascript to interact with the data in HTML. After that, the script continues by creating the `updateIngredients()` function. 
 
 ```javascript
 // This function updates the displayed ingredient amounts
@@ -558,19 +502,18 @@ minusButton.addEventListener('click', function () {
 //Code for the plus button event listener is omitted because of similarity
 ```
 
-These event listeners monitor clicks on the minus and plus buttons. When the minus button is clicked, it checks if the serving size is above the minimum and, if so, decreases the serving count and updates the ingredient amounts. Conversely, when the plus button is clicked, it simply increments the serving count and then updates the ingredient amounts.
-
-By using these JavaScript functions and event listeners, users can dynamically adjust the servings they wish to prepare, and the ingredient amounts will automatically update to match. This enhances the interactivity of the webpage by providing immediate feedback right in the browser without any need for server-side processing or full page refreshes. This not only improves the responsiveness of the application but also conserves bandwidth and server resources, creating a smoother and more efficient user experience.
+These event listeners monitor clicks on the minus and plus buttons. When the minus button is clicked, it checks if the serving size is above the minimum and, if so, decreases the serving count and updates the ingredient amounts and vice versa. 
 
 ### Pictures on Recipes/File Uploads(Success Criteria #5)
 
-One of the key functions my client mentioned was the capability for users to upload images of their culinary creations. Images are a vital aspect of sharing recipes, providing a preview of what the finished dish should look like. To achieve this feature, a few essential components were integrated into the server's flask application.
-
-The initial setup involves specifying the directory where all the uploaded images will be stored, which is a folder named 'uploads'. To ensure that the server only accepts image files, a set of allowed extensions is declared—'png', 'jpg', 'jpeg', and 'gif'. The Flask app is then configured to reference this upload folder:
+One of the key functions my client mentioned was the capability for users to upload images. To achieve this feature, we first declare a few variables:
 
 ```python
+#Directory where all the uploaded images will be stored is declared
 UPLOAD_FOLDER = 'uploads'
+#A set of allowed extensions is declared
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+#The Flask app is then configured to reference this upload folder
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 ```
 
@@ -581,16 +524,17 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 UPLOADS_PATH = os.path.join(BASE_DIR, 'uploads')
 ```
 
-The next step in the process is the implementation of a small but crucial function, `allowed_file`. This function serves as a gatekeeper, determining if the uploaded file's extension is within our defined set of permitted file types in order to prevent users from uploading malicious files:
+The next step in the process is the implementation of a  gatekeeper to determine if the uploaded file's extension is within our defined set in order to prevent malicious files:
 
 ```python
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 ```
 
-This function first checks if a file extension in present. If a file extension is present, it will be extracted in the second part of the return function and checked against the list of `ALLOWED_EXTENSIONS`. If both conditions are met, then the fucntion would return TRUE. With the preparatory work in place, the logic for handling an uploaded image is straightforward. When a file is received through the user's submission:
+This function first checks if a file extension in present. If a file extension is present, it will be extracted in the second part of the return function and checked against the list of `ALLOWED_EXTENSIONS`. If both conditions are met, then the function would return TRUE. With the preparatory work in place, the logic for handling an uploaded image is straightforward. 
 
 ```python
+#File is being put into variable when form is submitted
 uploaded_file = request.files.get('uploaded_image')
 ```
 
@@ -623,16 +567,18 @@ This allows easy loading of the pictures uploaded and completes the success crit
 
 ### Search Function(Success Criteria #6)
 
-My client wanted search functionality for their recipe-sharing platform. This feature is designed to be straightforward for the end-user to be able to easily find the recipe they're looking for. To initiate a search, the user would click the `Search` button on the header of the webpage. There, a search box would appear on a new page. The user would enter their keyword for query and click `Search` again to submit their query. The backend handles this input using the following Flask route:
+My client wanted search functionality for their recipe-sharing platform. To initiate a search, the user would click the `Search` button on the header of the webpage. There, a search box would appear on a new page. The user would enter their keyword for query and click `Search` again to submit their query. The backend handles this input using the following Flask route:
 
 ```python
 if request.method == 'POST':
+  #user's search input, referred to as `search_query`, is retrieved from the form data.
     search_query = request.form.get('search_query')
+    #search query is passed on to a method in the database manager
     posts = db.search(search_query)
     return render_template('search.html', username=username, search_results=posts)
 ```
 
-This code snippet shows how the server processes a search request. When the search form is submitted, the website makes a POST request, signifying that the user is initiating a new search. Within this request, the user's search input, referred to as `search_query`, is retrieved from the form data. After that, the search query is passed on to a method called `search` within the database management class `db_manager`. This function interacts with the underlying SQL Database using SQLAlchemy. The code is as follows:
+ The `search` function interacts with the underlying SQL Database using SQLAlchemy.
 
 ```python
 def search(self, search_query):
@@ -643,47 +589,27 @@ def search(self, search_query):
     for post in temp:
         # Appending a combination of recipe information and the username of the poster
         posts.append([post, self.session.query(Users).filter_by(id=post.user_id).first().username])
+        #list of search results is then passed back to the Flask route
     return posts
 ```
 
-In this function, a SQL query is formulated to look for any recipe names that contain the user's search term.  The user's search term is encapsulated with percentage symbols(%), which means wildcards in SQL. The result is a collection of recipe that matches the search criterias.
-
-For each recipe found, there's an additional step of fetching the username of the person who posted the recipe. This is achieved by querying the `Users` table for the `user_id` associated with each recipe. The result is a list of posts, each including the recipe and the corresponding username. 
-
-Finally, the list of search results is passed back to the Flask route, which then calls render_template to generate the HTML output. The search results are neatly packaged into a context dictionary that the search.html template uses to display the information on the web page.
+The render_template generates the HTML output after the code. The search results are packaged into a context dictionary that the search.html template uses to display the information on the web page.
 
 ### PDF Downloads(Success Criteria #7)
 
-My client wanted the ability to download recipe as PDFs. This function allows the end-user to be able to download and print out the pdf for the specific recipe and serving size without having to log into the website everytime and checking. This is done by a rendering engine in the server. First and foremost, there is definitely a download button on the recipe page. 
+My client wanted the ability to download recipe as PDFs. This is done by a rendering engine in the server. First and foremost, there is definitely a download button on the recipe page. 
 
 ```html
 <a href="/recipe/download/{{ recipe.id }}/"><button class="btn btn-primary" type="button" id="downloadRecipe">Download Recipe</button></a>
 ```
 
-I started out developing this button to link back to a donwload endpoint, where the function receives the recipe id from request. It would then render the according to recipe data from database. This is the code:
-
-```python
-#Function definition and token authentication is omitted for demonstrative purposes
-#Renders template file with Flask and jinja2 engine
-rendered = render_template('recipe.html')
-#Uses WeasyPrint Libray to put rendered html into pdf
-pdf = HTML(string=rendered).write_pdf()
-#Constructing pdf into a response
-response = make_response(pdf)
-#Setting parameters for response
-response.headers['Content-Type'] = 'application/pdf'
-response.headers['Content-Disposition'] = 'attachment; filename=output.pdf'
-#Send the response
-return response
-```
-
-However this has one issue. It is not able to render the amount of servings accordingly. To address this issues, I tried multiple methods of form submission and `POST` requests but all to no avail, some failed to render correctly, while others threw errors such as not being able to find certain resources. In light of this, I resorted to use client-side javascript to tell the client's browser to print the screen with the following code:
+Then, I resorted to use client-side javascript to tell the client's browser to print the screen with the following code:
 
 ```html
 <button class="btn btn-primary" type="button" onclick="window.print()">Print Recipe</button>
 ```
 
-When this button is clicked, the javascript calls back to the window object of the webpage and uses the `print()` function inside that object to trigger the browser to print the page with the printing dialog. This allows the client to turn their current viewing recipe into a pdf without reaching out to the server once more while also preserving the servings counter for the desired number of servings.
+When this button is clicked, the javascript calls back to  the `print()` function inside the window object to trigger the browser to print the page.
 
 <div style="page-break-after: always"></div>
 
@@ -709,28 +635,21 @@ When this button is clicked, the javascript calls back to the window object of t
 | The website must allow searching for recipes                 | Yes  | The website allows for search through the social media a dedicated `/search` page |
 | The website must allow for exporting the recipe in PDF form  | Yes  | The website allows for exporting to PDF using client-side Javascript |
 
-The client is very satisfied by the product(See Appendix 3), with the website meeting all the success criteria. During
-beta testing, the client suggested to add a confirmation dialog for deleting posts to eliminate accidental deletion (See
-Appendix 5)and that has been implemented as well. One possible improvement highlighted by the client is that one person
-is limited to one like or dislike in order to prevent people from spamming the like button, removing authenticity from
-the rating.
-
 ## Evaluation by Peer
 
-My peer is very satisfied by the product(See Appendix 4), with the website meeting all the success criteria.
-One possible improvement highlighted by my peer was the ability
-to filter through code by the code language on the home page
-as that would make it easier to sort through what they are looking for.
+My peer is very satisfied by the product(See Appendix 4), with the website meeting all the success criteria. One possible improvement highlighted by my peer was the ability to add subheadings to the posts.
 
 ## Extensibility
 
-The client was very satisfied with the final result, as it met all of his requirements. After some additional discussion,
+The client was very satisfied with the final result. After some additional discussion,
 we concluded that the following future extensions could be added:
 
-
+| Improvement                            | Notes                                                        |
+| -------------------------------------- | ------------------------------------------------------------ |
+| Photo Enlargement during export to PDF | This can be done to make the photo easier to see in the printout. This can be achieved easily using a html tag instructing the browser to render the image larger on load |
+| Subheading in main text                | This can be done to make the recipe easier to read and follow along with. This can be achieved by adding tools to indicate headings when creating posts and adding logic to interpret those signs during render. |
 
 <div style="page-break-after: always"></div>
-
 
 # Appendix
 
@@ -742,14 +661,14 @@ we concluded that the following future extensions could be added:
 
 **Appendix.2** *Contact between developer and client approving success criteria*
 
-![](/Users/bernardlee/PycharmProjects/IA_Kivy/Assets/ClientEvaluation.jpg)
+![](Assets/ClientFinal.jpg)
 
 **Appendix.3** *Contact between developer and client for evaluation of website*
 
-![](/Users/bernardlee/PycharmProjects/IA_Kivy/Assets/PeerEvaluation2.jpg)
+![](Assets/PeerE.jpg)
 
 **Appendix.4** *Contact between developer and a peer for evaluation of website*
 
-![](/Users/bernardlee/PycharmProjects/IA_Kivy/Assets/ClientBeta.jpg)
+![](Assets/ClientBeta.jpg)
 
 **Appendix.5** *Contact between developer and client regarding beta testing and feedback* 
